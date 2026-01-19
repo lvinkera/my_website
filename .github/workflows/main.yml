@@ -1,0 +1,23 @@
+name: Mənim İlk CI Pipeline-ım
+
+# Nə vaxt işə düşsün? (Trigger)
+on:
+  push:
+    branches: [ "main" ]
+
+# Nə iş görsün? (Jobs)
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Robot Ubuntu istifadə edir
+
+    steps:
+    # 1. Kodu depodan götür
+    - uses: actions/checkout@v3
+
+    # 2. Sadəcə salam ver (Test üçün)
+    - name: Salamlama
+      run: echo "Salam Elvin! Mən sənin GitHub Robotunam."
+
+    # 3. Docker İmicini Build et (Sənin əvəzinə)
+    - name: Docker Build Test
+      run: docker build . --file Dockerfile --tag elvin-sayt:v1
