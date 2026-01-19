@@ -1,0 +1,9 @@
+version: '3.8'  # Versiya
+
+services:
+  veb-serverim:  # Servisin adı
+    image: nginx:alpine  # Hazır Nginx işlət (öz buildimiz lazım deyil artıq)
+    ports:
+      - "8080:80"  # Port yönləndirmə
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html  # SEHRLİ SƏTİR BUDIR!
